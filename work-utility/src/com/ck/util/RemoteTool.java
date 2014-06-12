@@ -45,6 +45,7 @@ public class RemoteTool {
 		session = new JSch().getSession(ConfigHelper.getProperty("user"), ConfigHelper.getProperty("host"), 22);
 		session.setPassword(ConfigHelper.getProperty("pass"));
 		session.setConfig("StrictHostKeyChecking", "no");
+		//session.setConfig("UserKnownHostsFile", "/dev/null");
 		session.setConfig("GSSAPIAuthentication", "no");
 		session.setConfig("cipher.s2c", "blowfish-cbc");
 		session.setConfig("cipher.c2s", "blowfish-cbc");

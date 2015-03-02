@@ -1,18 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>work-utility</display-name>
+  <filter>
+    <filter-name>userCheck</filter-name>
+    <filter-class>com.ck.intercepter.UserCheck</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>userCheck</filter-name>
+    <url-pattern>/grid</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+  </filter-mapping>
   <welcome-file-list>
-    <welcome-file>index</welcome-file>
+    <welcome-file>index.html</welcome-file>
   </welcome-file-list>
   <servlet>
     <servlet-name>DefaultServlet</servlet-name>
     <servlet-class>
             com.ck.helloServlet
     </servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>IndexServlet</servlet-name>
+    <servlet-class>
+            com.ck.IndexServlet
+    </servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>DefaultServlet</servlet-name>
+    <url-pattern>/grid</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>IndexServlet</servlet-name>
     <url-pattern>/index</url-pattern>
   </servlet-mapping>
 </web-app>

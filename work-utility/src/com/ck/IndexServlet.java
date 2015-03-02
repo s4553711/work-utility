@@ -1,29 +1,25 @@
 package com.ck;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ck.grid.OgeMonitor;
-import com.ck.util.GridInfo;
-
 /**
- * Servlet implementation class helloServlet
+ * Servlet implementation class IndexServlet
  */
-public class helloServlet extends HttpServlet {
+@WebServlet("/IndexServlet")
+public class IndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public helloServlet() {
+    public IndexServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,13 +27,10 @@ public class helloServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
-		OgeMonitor nw = new OgeMonitor();
-		nw.testCMD();
-		ArrayList<GridInfo> res = nw.testCmdExist();
-		
-		request.setAttribute("model", res);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/pages/grid.jsp");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		RequestDispatcher dispatcher = request
+                .getRequestDispatcher("/WEB-INF/pages/index.jsp");
         dispatcher.forward(request, response);
 	}
 
